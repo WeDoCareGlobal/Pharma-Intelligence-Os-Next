@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "Pharma Intelligence OS — Pharmacovigilance & Regulatory Intelligence Workspace"
+message: >-
+  If you use this software, please cite it as below. Every release is archived on
+  Zenodo with a version-specific DataCite DOI, and the author ORCID is embedded in
+  the deposit metadata so the record syncs to ORCID automatically.
+type: software
+authors:
+  - family-names: "Perla"
+    given-names: "Emir"
+    orcid: "https://orcid.org/0009-0009-8515-2727"
+    affiliation: "We Do Care Global"
+    email: "emirperla96@gmail.com"
+version: "0.1.0"
+date-released: "2026-09-26"
+url: "https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next"
+repository-code: "https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next"
+license: "Apache-2.0"
+keywords:
+  - "pharmacovigilance"
+  - "ICSR"
+  - "E2B(R3)"
+  - "signal management"
+  - "PSUR"
+  - "regulatory intelligence"
+  - "React"
+  - "TypeScript"

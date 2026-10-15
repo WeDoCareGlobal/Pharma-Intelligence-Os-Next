@@ -1,0 +1,1 @@
+[{"name":"eu-source-refresh","cron":"*/5 * * * *","handler":"sourceRefreshHandler","timezone":"UTC","payload":{"scope":"official-source-status"}}]

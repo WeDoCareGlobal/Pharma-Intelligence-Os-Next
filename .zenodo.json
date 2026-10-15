@@ -1,0 +1,40 @@
+{
+  "title": "Pharma Intelligence OS \u2014 Pharmacovigilance & Regulatory Intelligence Workspace",
+  "upload_type": "software",
+  "description": "Browser-based pharmacovigilance workspace: ICSR case review with human verification, ICH E2B(R3) package generation, disproportionality signal management (PRR/ROR), PSUR/PBRER working drafts, official-source status monitoring, and FDA approval tracking from the public openFDA feed. E2B transmission to EMA EudraVigilance and official regulatory submissions are registration-gated by design; the workspace never fabricates a regulatory status.",
+  "creators": [
+    {
+      "name": "Perla, Emir",
+      "affiliation": "We Do Care Global",
+      "orcid": "0009-0009-8515-2727"
+    }
+  ],
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "keywords": [
+    "pharmacovigilance",
+    "ICSR",
+    "E2B(R3)",
+    "signal management",
+    "PSUR",
+    "PBRER",
+    "regulatory intelligence",
+    "openFDA",
+    "React",
+    "TypeScript"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://WeDoCareGlobal.github.io/Pharma-Intelligence-Os-Next/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ],
+  "version": "0.1.1",
+  "publication_date": "2026-09-26"
+}
