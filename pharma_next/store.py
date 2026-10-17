@@ -142,3 +142,12 @@ class CaseStore:
                 raise Conflict('case changed during export')
             self._event(db, tenant, actor, case_id, 'draft_exported', case['version'])
         return {'artifact': artifact, 'sha256': hashlib.sha256(encoded.encode()).hexdigest()}
+
+    def scan_tenant(self, tenant: str) -> list[dict]:
+        """List all cases for a tenant (used by the cases list endpoint)."""
+        with _connect(self.path) as db:
+            rows = db.execute(
+                'SELECT * FROM cases WHERE tenant=? ORDER BY version DESC', (tenant,)
+            ).fetchall()
+        return [dict(r) for r in rows]
+

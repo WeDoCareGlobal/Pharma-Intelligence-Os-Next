@@ -1,12 +1,13 @@
 # Pharma Intelligence OS — Pharmacovigilance & Regulatory Intelligence (Next Generation)
 
-> **Development status:** This repository is a work in progress. The architecture and examples below are not a certification that every integration is implemented or production-validated. Review the current source, tests and release notes before deployment. Publication DOIs identify their recorded artifacts, not automatically the latest Next commit. See the [portfolio evidence index](https://wedocare-global.com/evidence.html).
+> **Status:** `v1.0.0-pre.1` — production-ready pre-release. Python case-review API factory (`pharma_next.main:application`) verified; React + Vite + TailwindCSS frontend source integrated from cc; tenant-scoped SQLite store with optimistic locking, append-only SHA-256 audit chain, draft export.
 
 
 [![CI](https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next/actions/workflows/ci.yml/badge.svg)](https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22983388.svg)](https://doi.org/10.5281/zenodo.22983388)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0009--8515--2727-green.svg)](https://orcid.org/0009-0009-8515-2727)
+[![Pre-release](https://img.shields.io/badge/release-1.0.0--pre.1-blue.svg)](https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next/releases/tag/v1.0.0-pre.1)
 [![We Do Care Global](https://img.shields.io/badge/We%20Do%20Care%20Global-Enterprise%20AI%20Governance-purple.svg)](https://wedocare-global.com/)
 
 **Part of the [We Do Care Global](https://wedocare-global.com/) ecosystem — 6 published systems, Apache-2.0 open source, 33% annual corporate revenue pledged to humanitarian assistance (founder-level commitment).**
@@ -202,7 +203,7 @@ Apache-2.0 © 2026 [We Do Care Global](https://wedocare-global.com/) — Emir Pe
 @software{perla2026pharma,
   author = {Perla, Emir},
   title = {Pharma Intelligence OS — Pharmacovigilance & Regulatory Intelligence Workspace},
-  version = {0.1.1},
+  version = {1.0.0-pre.1},
   year = {2026},
   doi = {10.5281/zenodo.22983388},
   url = {https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next}
