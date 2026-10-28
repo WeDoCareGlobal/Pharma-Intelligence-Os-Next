@@ -12,6 +12,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lockfile-bootstrap:
+    name: Generate missing npm lockfile artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate lockfile without install scripts
+        working-directory: frontend
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+      - name: Upload lockfile for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: pharma-frontend-package-lock
+          path: frontend/package-lock.json
+          if-no-files-found: error
   verify:
     name: Lint, typecheck, test, build
     runs-on: ubuntu-latest
