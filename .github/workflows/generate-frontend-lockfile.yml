@@ -1,0 +1,33 @@
+name: Generate frontend npm lockfile artifact
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'frontend/package.json'
+      - '.github/workflows/generate-frontend-lockfile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate reproducible npm lockfile
+        working-directory: frontend
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+      - name: Verify generated lockfile
+        working-directory: frontend
+        run: node -e "const p=require('./package-lock.json'); if(p.lockfileVersion < 3 || p.name !== require('./package.json').name) process.exit(1)"
+      - name: Upload generated lockfile for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: pharma-frontend-package-lock
+          path: frontend/package-lock.json
+          if-no-files-found: error
