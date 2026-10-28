@@ -1,6 +1,11 @@
 # Pharma Intelligence OS — Pharmacovigilance & Regulatory Intelligence (Next Generation)
 
-> **Status:** `v1.0.0-pre.1` — production-ready pre-release. Python case-review API factory (`pharma_next.main:application`) verified; React + Vite + TailwindCSS frontend source integrated from cc; tenant-scoped SQLite store with optimistic locking, append-only SHA-256 audit chain, draft export.
+> **Engineering focus:** Human-reviewed pharmacovigilance and regulatory intelligence.
+>
+> **Evidence boundary:** Not a substitute for clinical or regulatory review.
+>
+> [Project overview](https://www.wedocare-global.com/pharma-intelligence-os.html) · [Evidence index](https://www.wedocare-global.com/evidence.html) · [Portfolio](https://github.com/WeDoCareGlobal)
+
 
 
 [![CI](https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next/actions/workflows/ci.yml/badge.svg)](https://github.com/WeDoCareGlobal/Pharma-Intelligence-Os-Next/actions/workflows/ci.yml)
