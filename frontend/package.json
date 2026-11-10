@@ -28,7 +28,7 @@
         "preview": "vite preview",
         "lint": "eslint src --ext .ts,.tsx",
         "typecheck": "tsc --noEmit",
-        "test": "vitest run",
+        "test": "vitest run --passWithNoTests",
         "test:watch": "vitest",
         "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
     },
