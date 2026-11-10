@@ -71,7 +71,7 @@ jobs:
         run: npm run build
 
       - name: Security audit
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=moderate
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
