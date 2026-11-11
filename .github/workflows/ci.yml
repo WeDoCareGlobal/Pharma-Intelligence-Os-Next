@@ -29,14 +29,22 @@ jobs:
           name: pharma-frontend-package-lock
           path: frontend/package-lock.json
           if-no-files-found: error
+
   verify:
     name: Lint, typecheck, test, build
     runs-on: ubuntu-latest
+    needs: lockfile-bootstrap
     defaults:
       run:
         working-directory: frontend
     steps:
       - uses: actions/checkout@v4
+
+      - name: Download lockfile artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pharma-frontend-package-lock
+          path: frontend
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
