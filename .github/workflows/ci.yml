@@ -54,19 +54,19 @@ jobs:
       # `npm ci` requires package-lock.json to be committed — that missing lock
       # file is what failed every earlier run on this repo.
       - name: Install (frontend)
-        run: cd frontend && npm ci
+        run: npm ci
 
       - name: Lint
-        run: cd frontend && npm run lint
+        run: npm run lint
 
       - name: Typecheck
-        run: cd frontend && npm run typecheck
+        run: npm run typecheck
 
       - name: Test
-        run: cd frontend && npx vitest run
+        run: npx vitest run
 
       - name: Build
-        run: cd frontend && npm run build
+        run: npm run build
 
       - name: Setup Python
         uses: actions/setup-python@v5
