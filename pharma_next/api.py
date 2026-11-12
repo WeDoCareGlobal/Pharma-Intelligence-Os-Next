@@ -30,6 +30,8 @@ from .models import (
     HealthResponse,
 )
 from .store import CaseStore, Conflict
+from .governance import OmniGuardGovernance, GovernanceError
+import os
 
 # ---------------------------------------------------------------------------
 # Application factory
@@ -71,6 +73,16 @@ def create_application(store: Optional[CaseStore] = None) -> FastAPI:
     )
     async def create_case(req: CaseCreateRequest, tenant: str = Query(...)):
         actor = "api-client"  # placeholder; real auth populates this
+        # Governance check (fail-closed)
+        api_key = os.environ.get("OMNIGUARD_API_KEY")
+        if api_key:
+            gov = OmniGuardGovernance(api_key=api_key)
+            try:
+                import json
+                await gov.inspect_content(json.dumps(req.body.model_dump()))
+            except GovernanceError as exc:
+                raise HTTPException(status_code=403, detail=str(exc))
+            await gov.close()
         try:
             case = store.create(tenant, actor, req.body.model_dump())
         except ValueError as exc:
