@@ -54,7 +54,7 @@ jobs:
       # `npm ci` requires package-lock.json to be committed — that missing lock
       # file is what failed every earlier run on this repo.
       - name: Install (frontend)
-        run: cd frontend && npm install
+        run: cd frontend && npm ci
 
       - name: Lint
         run: cd frontend && npm run lint
@@ -63,7 +63,7 @@ jobs:
         run: cd frontend && npm run typecheck
 
       - name: Test
-        run: cd frontend && npx vitest run --passWithNoTests
+        run: cd frontend && npx vitest run
 
       - name: Build
         run: cd frontend && npm run build
@@ -80,7 +80,7 @@ jobs:
         run: python -m pytest tests/ -v
 
       - name: Security audit
-        run: cd frontend && npm audit --audit-level=high || true
+        run: cd frontend && npm audit --audit-level=high
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -125,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@master
+      - uses: aquasecurity/trivy-action@38b337fff0a2f984d5be173c99e3f633438167ec
         with:
           scan-type: fs
           scan-ref: .
