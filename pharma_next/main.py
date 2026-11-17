@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """FastAPI application factory entry point.
 
 Used by:
@@ -8,7 +10,6 @@ Imports the API router from :mod:`pharma_next.api` and wires it to a
 ``CaseStore`` backed by ``PHARMA_DATABASE`` (default ``./data/cases.db``).
 """
 
-from __future__ import annotations
 
 import os
 

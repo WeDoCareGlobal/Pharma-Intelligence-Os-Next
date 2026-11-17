@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Governance integration for Pharma Intelligence OS.
 
 Inspects case content through OmniGuard before case operations.

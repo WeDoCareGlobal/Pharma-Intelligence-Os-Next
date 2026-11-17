@@ -1,9 +1,9 @@
+from __future__ import annotations
+
 """Pydantic models for the Pharma Intelligence OS case review API.
 
 Request/response schemas for the /v1/cases* endpoints.
 """
-
-from __future__ import annotations
 
 from typing import Any, List, Optional
 from uuid import UUID
