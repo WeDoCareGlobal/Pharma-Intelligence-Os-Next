@@ -34,9 +34,6 @@ jobs:
     name: Lint, typecheck, test, build
     runs-on: ubuntu-latest
     needs: lockfile-bootstrap
-    defaults:
-      run:
-        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
 
@@ -49,24 +46,29 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' 
+          node-version: '20'
 
       # `npm ci` requires package-lock.json to be committed — that missing lock
       # file is what failed every earlier run on this repo.
       - name: Install (frontend)
-        run: cd frontend && npm install
+        working-directory: frontend
+        run: npm ci
 
       - name: Lint
-        run: cd frontend && npm run lint
+        working-directory: frontend
+        run: npm run lint
 
       - name: Typecheck
-        run: cd frontend && npm run typecheck
+        working-directory: frontend
+        run: npm run typecheck
 
       - name: Test
-        run: cd frontend && npx vitest run --passWithNoTests
+        working-directory: frontend
+        run: npx vitest run
 
       - name: Build
-        run: cd frontend && npm run build
+        working-directory: frontend
+        run: npm run build
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -80,7 +82,8 @@ jobs:
         run: python -m pytest tests/ -v
 
       - name: Security audit
-        run: cd frontend && npm audit --audit-level=high || true
+        working-directory: frontend
+        run: npm audit --audit-level=high
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -125,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@master
+      - uses: aquasecurity/trivy-action@38b337fff0a2f984d5be173c99e3f633438167ec
         with:
           scan-type: fs
           scan-ref: .
